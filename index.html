@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="violet-dark" data-type="inter-jbmono" data-hero="A">
+<head>
+<meta charset="utf-8">
+<title>Information X — AI, Blockchain & Software Consulting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap">
+
+<script>
+/* ---- Tweakable defaults, persisted on disk ---- */
+const TWEAK_DEFAULTS = {
+  "theme": "violet-dark",
+  "typePair": "grotesk-jbmono",
+  "heroVariant": "A",
+  "logoVariant": "chain"
+};
+</script>
+
+<style>
+/* ======================================================================
+   INFORMATION X — brand system
+   ====================================================================== */
+
+:root {
+  --bg:            #0A0815;
+  --bg-2:          #120F24;
+  --bg-elev:       #171329;
+  --line:          rgba(255,255,255,0.09);
+  --line-strong:   rgba(255,255,255,0.18);
+  --fg:            #F5F3FF;
+  --fg-2:          rgba(245,243,255,0.72);
+  --fg-3:          rgba(245,243,255,0.48);
+  --accent:        #A855F7;
+  --accent-2:      #EC4899;
+  --accent-3:      #22D3EE;
+  --accent-ink:    #0A0815;
+  --grid:          rgba(168,85,247,0.10);
+  --f-sans:  'Inter', ui-sans-serif, system-ui, sans-serif;
+  --f-mono:  'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --f-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --container: 1280px;
+}
+
+html[data-theme="light"] {
+  --bg:            #F6F5F2;
+  --bg-2:          #ECEAE4;
+  --bg-elev:       #FFFFFF;
+  --line:          rgba(10,8,21,0.10);
+  --line-strong:   rgba(10,8,21,0.22);
+  --fg:            #0A0815;
+  --fg-2:          rgba(10,8,21,0.70);
+  --fg-3:          rgba(10,8,21,0.48);
+  --grid:          rgba(10,8,21,0.07);
+}
+
+html[data-theme="electric"] {
+  --bg:            #0A0A0A;
+  --bg-2:          #141414;
+  --bg-elev:       #1C1C1C;
+  --line:          rgba(255,255,255,0.10);
+  --line-strong:   rgba(255,255,255,0.25);
+  --fg:            #FAFAFA;
+  --fg-2:          rgba(250,250,250,0.72);
+  --fg-3:          rgba(250,250,250,0.48);
+  --accent:        #FF4D1F;
+  --accent-2:      #FFB800;
+  --accent-3:      #FAFAFA;
+  --grid:          rgba(255,77,31,0.10);
+}
+
+html[data-theme="mint"] {
+  --bg:            #FAFAF8;
+  --bg-2:          #F1F1EC;
+  --bg-elev:       #FFFFFF;
+  --line:          rgba(17,17,17,0.10);
+  --line-strong:   rgba(17,17,17,0.22);
+  --fg:            #0E1411;
+  --fg-2:          rgba(14,20,17,0.70);
+  --fg-3:          rgba(14,20,17,0.48);
+  --accent:        #10B981;
+  --accent-2:      #0EA5E9;
+  --accent-3:      #0E1411;
+  --grid:          rgba(16,185,129,0.10);
+}
+
+html[data-type="inter-jbmono"] {
+  --f-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --f-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+html[data-type="grotesk-jbmono"] {
+  --f-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --f-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+html[data-type="ibm"] {
+  --f-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --f-display: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+}
+html[data-type="serif-mono"] {
+  --f-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --f-display: 'Instrument Serif', 'Times New Roman', serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-sans);
+  font-feature-settings: "ss01","cv11";
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+.container { width: min(var(--container), calc(100% - 48px)); margin: 0 auto; }
+.row { display: flex; }
+.mono { font-family: var(--f-mono); letter-spacing: 0; }
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.eyebrow .dot {
+  display: inline-block;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  margin-right: 8px;
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 4px rgba(168,85,247,0.15);
+}
+
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  background: color-mix(in oklab, var(--bg) 72%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-links {
+  display: flex; gap: 28px; align-items: center;
+  font-family: var(--f-mono); font-size: 13px;
+  color: var(--fg-2);
+}
+.nav-links a { position: relative; padding: 6px 0; }
+.nav-links a:hover { color: var(--fg); }
+.nav-links a.active { color: var(--fg); }
+.nav-links a.active::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -8px;
+  height: 2px; background: var(--accent);
+}
+.nav-cta {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--bg);
+  display: inline-flex; gap: 8px; align-items: center;
+  transition: transform .15s ease;
+}
+.nav-cta:hover { transform: translateY(-1px); }
+
+.logo {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.logo-name { font-family: var(--f-mono); font-weight: 500; font-size: 14px; letter-spacing: 0.02em; }
+.logo-name .x { color: var(--accent); }
+
+.logo-mark[data-variant="bracket"]::before,
+.logo-mark[data-variant="bracket"]::after {
+  content: ""; position: absolute; width: 8px; height: 100%;
+  border: 1.5px solid var(--fg);
+}
+.logo-mark[data-variant="bracket"]::before { left: 0; border-right: none; border-top-left-radius: 3px; border-bottom-left-radius: 3px;}
+.logo-mark[data-variant="bracket"]::after  { right: 0; border-left:  none; border-top-right-radius: 3px; border-bottom-right-radius: 3px;}
+.logo-mark[data-variant="bracket"] span {
+  font-family: var(--f-mono); font-weight: 700; font-size: 13px; color: var(--accent);
+  position: relative; z-index: 1;
+}
+
+.logo-mark[data-variant="prism"] svg { width: 100%; height: 100%; }
+
+.logo-mark[data-variant="chain"] { width: 32px; height: 32px; }
+.logo-mark[data-variant="chain"] svg { width: 100%; height: 100%; overflow: visible; }
+
+.logo-mark[data-variant="dot"] {
+  width: 10px; height: 10px; background: var(--accent); border-radius: 50%;
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+.hero {
+  position: relative;
+  padding: 96px 0 120px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+  pointer-events: none;
+}
+.hero-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(600px 400px at 18% 10%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%),
+    radial-gradient(700px 500px at 85% 90%, color-mix(in oklab, var(--accent-2) 18%, transparent), transparent 60%);
+}
+
+.hero-a { display: none; position: relative; }
+html[data-hero="A"] .hero-a { display: block; }
+html[data-hero="B"] .hero-b { display: block; }
+
+.hero-a .badge-row {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--f-mono); font-size: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--fg-2);
+  background: color-mix(in oklab, var(--bg-elev) 60%, transparent);
+}
+.pill .dot-sm {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-3);
+  box-shadow: 0 0 8px var(--accent-3);
+}
+.pill.violet .dot-sm { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+.pill.pink .dot-sm { background: var(--accent-2); box-shadow: 0 0 8px var(--accent-2); }
+
+.hero-a h1 {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(48px, 7.4vw, 108px);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  margin: 0 0 28px;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.hero-a h1 .grad {
+  background: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 60%, var(--accent-3) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+.hero-a h1 .serif-touch { font-style: italic; font-weight: 400; font-family: 'Instrument Serif', serif; letter-spacing: -0.01em; }
+html[data-type="serif-mono"] .hero-a h1 { font-weight: 400; letter-spacing: -0.02em; }
+
+.hero-a p.lead {
+  max-width: 62ch;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--fg-2);
+  margin: 0 0 40px;
+}
+.cta-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  transition: transform .15s ease, background .15s ease, color .15s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.btn.primary { background: var(--fg); color: var(--bg); }
+.btn.primary:hover { transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--line-strong); }
+.btn.ghost:hover { border-color: var(--fg); }
+.btn .arrow { transition: transform .2s ease; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+.hero-a .meta-row {
+  margin-top: 80px;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  border-top: 1px dashed var(--line-strong);
+  padding-top: 24px;
+}
+.hero-a .meta-row .cell .k { font-family: var(--f-mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+.hero-a .meta-row .cell .v { font-family: var(--f-display); font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+.hero-a .meta-row .cell .v .u { color: var(--accent); }
+
+.hero-b { display: none; position: relative; }
+.hero-b-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+.hero-b h1 {
+  font-family: var(--f-display); font-weight: 700;
+  font-size: clamp(40px, 5.6vw, 76px); line-height: 1.0;
+  letter-spacing: -0.03em; margin: 28px 0 24px;
+}
+.hero-b h1 .grad {
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-b p.lead { font-size: 17px; line-height: 1.6; color: var(--fg-2); max-width: 52ch; margin: 0 0 32px; }
+
+.term {
+  background: var(--bg-elev); border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg); overflow: hidden;
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 14%, transparent),
+    0 30px 60px -20px rgba(0,0,0,0.5),
+    0 0 120px -20px color-mix(in oklab, var(--accent) 20%, transparent);
+  font-family: var(--f-mono); font-size: 13px; color: var(--fg);
+}
+.term-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; border-bottom: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg-2) 65%, transparent);
+}
+.term-dots { display: flex; gap: 6px; }
+.term-dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--line-strong); }
+.term-dots i:nth-child(1){ background: #ff5f56; }
+.term-dots i:nth-child(2){ background: #ffbd2e; }
+.term-dots i:nth-child(3){ background: #27c93f; }
+.term-title { font-size: 12px; color: var(--fg-3); }
+.term-body { padding: 18px 20px; display: grid; gap: 6px; }
+.term .c-comment { color: var(--fg-3); }
+.term .c-prompt { color: var(--accent); }
+.term .c-key { color: var(--accent-2); }
+.term .c-str { color: var(--accent-3); }
+.term .c-ok { color: #22c55e; }
+.term .c-warn { color: #f59e0b; }
+.term .blink { animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.capability-grid {
+  margin-top: 16px; display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+}
+.capability-grid .c {
+  border-right: 1px solid var(--line); padding: 14px 16px;
+  font-family: var(--f-mono); font-size: 11.5px; color: var(--fg-2);
+}
+.capability-grid .c:last-child { border-right: none; }
+.capability-grid .c .n { color: var(--fg-3); font-size: 10.5px; margin-bottom: 6px; letter-spacing: .06em; }
+.capability-grid .c .v { color: var(--fg); font-size: 13px; font-weight: 500; }
+
+.belt { border-bottom: 1px solid var(--line); padding: 28px 0; overflow: hidden; }
+.belt-inner {
+  display: flex; gap: 64px; animation: slide 40s linear infinite;
+  width: max-content; align-items: center; color: var(--fg-3);
+  font-family: var(--f-mono); font-size: 13px; white-space: nowrap;
+}
+.belt-inner span { display: inline-flex; align-items: center; gap: 12px; }
+.belt-inner .sep { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: .5; }
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+section.section { padding: 120px 0; position: relative; }
+section.section + section.section { border-top: 1px solid var(--line); }
+
+.sec-head { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; margin-bottom: 64px; align-items: end;}
+.sec-head h2 {
+  font-family: var(--f-display); font-size: clamp(36px, 4.6vw, 64px);
+  font-weight: 700; line-height: 1.02; letter-spacing: -0.03em;
+  margin: 12px 0 0; text-wrap: balance;
+}
+.sec-head h2 .grad {
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.sec-head .desc { color: var(--fg-2); font-size: 17px; line-height: 1.6; max-width: 60ch; }
+
+.services { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+.svc {
+  grid-column: span 6; background: var(--bg-elev); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 28px; position: relative; overflow: hidden;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.svc:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.svc.wide { grid-column: span 12; }
+.svc.third { grid-column: span 4; }
+
+.svc-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.svc-index { font-family: var(--f-mono); font-size: 12px; color: var(--fg-3); }
+.svc-tag {
+  font-family: var(--f-mono); font-size: 11px; color: var(--accent);
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  padding: 4px 10px; border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+}
+.svc h3 {
+  font-family: var(--f-display); font-weight: 600; font-size: 28px;
+  letter-spacing: -0.02em; margin: 0 0 12px; text-wrap: balance;
+}
+.svc p { color: var(--fg-2); font-size: 15.5px; line-height: 1.6; margin: 0 0 22px; max-width: 52ch; }
+.svc ul {
+  list-style: none; padding: 0; margin: 0; display: grid; gap: 8px;
+  font-family: var(--f-mono); font-size: 12.5px; color: var(--fg-2);
+}
+.svc ul li { display: flex; align-items: center; gap: 10px; }
+.svc ul li::before { content: ""; width: 8px; height: 1px; background: var(--accent); flex: none; }
+
+.svc-viz { margin-top: 22px; }
+
+.viz-ai {
+  display: flex; align-items: flex-end; gap: 3px; height: 100px;
+  padding: 16px; border: 1px dashed var(--line-strong); border-radius: var(--r-md);
+  background: linear-gradient(180deg, transparent, color-mix(in oklab, var(--accent) 6%, transparent));
+}
+.viz-ai i {
+  width: 6px; background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 2px; opacity: 0.85;
+}
+
+.viz-chain {
+  padding: 16px; border: 1px dashed var(--line-strong); border-radius: var(--r-md);
+  display: flex; align-items: center; gap: 10px; overflow: hidden;
+  background: linear-gradient(180deg, transparent, color-mix(in oklab, var(--accent-2) 6%, transparent));
+}
+.block {
+  flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--line-strong);
+  border-radius: 6px; font-family: var(--f-mono); font-size: 10.5px; color: var(--fg-2);
+  background: color-mix(in oklab, var(--bg-2) 70%, transparent); display: grid; gap: 3px;
+}
+.block .h { color: var(--accent); letter-spacing: .05em; }
+.block .n { color: var(--fg-3); font-size: 9.5px; }
+.block .v { color: var(--fg); font-size: 11px; word-break: break-all; }
+.chain-link { color: var(--fg-3); font-family: var(--f-mono); }
+
+.viz-matrix {
+  padding: 14px; border: 1px dashed var(--line-strong); border-radius: var(--r-md);
+  background: color-mix(in oklab, var(--bg-2) 40%, transparent);
+  display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px;
+}
+.viz-matrix i {
+  aspect-ratio: 1; background: color-mix(in oklab, var(--fg) 6%, transparent); border-radius: 2px;
+}
+.viz-matrix i.on { background: var(--accent); }
+.viz-matrix i.warn { background: var(--accent-2); }
+
+.viz-impact {
+  padding: 16px; border: 1px dashed var(--line-strong); border-radius: var(--r-md);
+  display: grid; gap: 10px; font-family: var(--f-mono); font-size: 11px; color: var(--fg-3);
+}
+.bar { display: grid; grid-template-columns: 120px 1fr auto; gap: 12px; align-items: center; }
+.bar .fill { height: 8px; background: color-mix(in oklab, var(--fg) 6%, transparent); border-radius: 999px; overflow: hidden; }
+.bar .fill i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.bar .v { color: var(--fg); }
+
+.viz-kanban {
+  padding: 14px; border: 1px dashed var(--line-strong); border-radius: var(--r-md);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  font-family: var(--f-mono); font-size: 10.5px;
+}
+.kol .kh { color: var(--fg-3); margin-bottom: 8px; letter-spacing: .08em; }
+.kcard {
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg-2) 65%, transparent);
+  padding: 8px 10px; border-radius: 6px; color: var(--fg-2); margin-bottom: 6px;
+}
+.kcard .t { color: var(--fg); font-size: 11px; margin-bottom: 4px; }
+
+.approach {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  overflow: hidden; background: var(--bg-elev);
+}
+.approach .step {
+  padding: 28px; border-right: 1px solid var(--line);
+  position: relative; min-height: 240px; display: flex; flex-direction: column;
+}
+.approach .step:last-child { border-right: none; }
+.approach .step .n {
+  font-family: var(--f-mono); font-size: 11px; color: var(--fg-3);
+  letter-spacing: .08em; margin-bottom: 32px; display: flex; justify-content: space-between;
+}
+.approach .step .n b { color: var(--accent); font-weight: 500; }
+.approach .step h4 {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: 22px; letter-spacing: -0.015em; margin: 0 0 10px;
+}
+.approach .step p { color: var(--fg-2); font-size: 14px; line-height: 1.55; margin: 0; }
+.approach .step .tick {
+  margin-top: auto; font-family: var(--f-mono); font-size: 11px; color: var(--fg-3);
+  padding-top: 20px; border-top: 1px dashed var(--line);
+}
+.approach .step .tick span { color: var(--accent); }
+
+.about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.about-copy p { font-size: 17px; line-height: 1.65; color: var(--fg-2); margin: 0 0 18px; }
+.about-copy p strong { color: var(--fg); font-weight: 600; }
+.about-stats {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+  background: var(--line); border: 1px solid var(--line);
+  border-radius: var(--r-lg); overflow: hidden;
+}
+.about-stats .stat { background: var(--bg-elev); padding: 28px; }
+.about-stats .stat .k { font-family: var(--f-mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.about-stats .stat .v {
+  font-family: var(--f-display); font-weight: 600; font-size: 44px;
+  letter-spacing: -0.025em; line-height: 1;
+}
+.about-stats .stat .v .u { color: var(--accent); font-size: 22px; margin-left: 4px; font-weight: 500; }
+.about-stats .stat .d { color: var(--fg-2); font-size: 13px; margin-top: 10px; }
+
+.caps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cap {
+  border: 1px solid var(--line); border-radius: var(--r-md); padding: 20px;
+  background: var(--bg-elev); font-family: var(--f-mono); font-size: 12.5px;
+  color: var(--fg-2); display: grid; gap: 8px;
+}
+.cap .t { font-family: var(--f-display); color: var(--fg); font-size: 16px; font-weight: 600; letter-spacing: -0.01em;}
+.cap .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.cap .tags b {
+  font-weight: 400; font-size: 11px; padding: 3px 8px; border-radius: 999px;
+  border: 1px solid var(--line-strong); color: var(--fg-3);
+}
+
+.contact-wrap {
+  border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden;
+  background:
+    radial-gradient(600px 300px at 10% 0%, color-mix(in oklab, var(--accent) 20%, transparent), transparent 60%),
+    radial-gradient(600px 300px at 100% 100%, color-mix(in oklab, var(--accent-2) 15%, transparent), transparent 60%),
+    var(--bg-elev);
+}
+.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0; }
+.contact-copy { padding: 64px; border-right: 1px solid var(--line); }
+.contact-copy h2 {
+  font-family: var(--f-display); font-size: clamp(36px, 4.4vw, 60px);
+  font-weight: 700; letter-spacing: -0.03em; line-height: 1;
+  margin: 16px 0 24px; text-wrap: balance;
+}
+.contact-copy h2 .grad {
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.contact-copy p { color: var(--fg-2); font-size: 16px; line-height: 1.6; margin: 0 0 32px; max-width: 48ch; }
+.contact-details { display: grid; gap: 12px; font-family: var(--f-mono); font-size: 13px; }
+.contact-details div { color: var(--fg-2); display: grid; grid-template-columns: 120px 1fr; gap: 12px; }
+.contact-details div b { color: var(--fg-3); font-weight: 400; }
+.contact-details a:hover { color: var(--accent); }
+
+.contact-form { padding: 48px; display: grid; gap: 16px; align-content: start; }
+.contact-form .field label {
+  display: block; font-family: var(--f-mono); font-size: 11px; color: var(--fg-3);
+  margin-bottom: 6px; letter-spacing: .08em; text-transform: uppercase;
+}
+.contact-form .field input,
+.contact-form .field textarea,
+.contact-form .field select {
+  width: 100%; background: color-mix(in oklab, var(--bg) 60%, transparent);
+  border: 1px solid var(--line-strong); color: var(--fg); font-family: var(--f-sans);
+  font-size: 14px; padding: 12px 14px; border-radius: var(--r-md); outline: none;
+  transition: border-color .15s;
+}
+.contact-form .field input:focus,
+.contact-form .field textarea:focus,
+.contact-form .field select:focus { border-color: var(--accent); }
+.contact-form .field textarea { min-height: 110px; resize: vertical; font-family: var(--f-sans);}
+.contact-form .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.contact-form .submit {
+  margin-top: 4px; padding: 14px 22px; border-radius: 999px;
+  background: var(--fg); color: var(--bg); font-family: var(--f-mono); font-size: 13px;
+  border: none; cursor: pointer;
+  display: inline-flex; gap: 10px; align-items: center; justify-content: center;
+}
+
+footer {
+  border-top: 1px solid var(--line); padding: 48px 0 28px; margin-top: 40px;
+}
+.foot-grid {
+  display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; margin-bottom: 48px;
+}
+.foot-grid h5 { font-family: var(--f-mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .1em; margin: 0 0 14px; font-weight: 500;}
+.foot-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.foot-grid a { color: var(--fg-2); font-size: 14px; }
+.foot-grid a:hover { color: var(--fg); }
+.foot-grid p { color: var(--fg-2); font-size: 14px; line-height: 1.5; max-width: 32ch;}
+.foot-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--line); padding-top: 20px;
+  font-family: var(--f-mono); font-size: 12px; color: var(--fg-3);
+}
+
+#tweaks {
+  position: fixed; bottom: 20px; right: 20px; z-index: 999; width: 320px;
+  background: var(--bg-elev); border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  box-shadow: 0 20px 60px -10px rgba(0,0,0,0.55), 0 0 0 1px var(--line);
+  color: var(--fg); display: none; font-family: var(--f-sans); overflow: hidden;
+}
+#tweaks.open { display: block; }
+#tweaks .t-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; border-bottom: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg-2) 55%, transparent);
+}
+#tweaks .t-head b { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-2); font-weight: 500; }
+#tweaks .t-head i { color: var(--accent); font-style: normal; }
+#tweaks .t-body { padding: 16px; display: grid; gap: 18px; max-height: 70vh; overflow: auto; }
+.tgroup .tlabel {
+  font-family: var(--f-mono); font-size: 10.5px; color: var(--fg-3);
+  letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px;
+}
+.tgroup .tbtns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+.tgroup .tbtns.four { grid-template-columns: repeat(4, 1fr); }
+.tgroup .tbtns button {
+  background: color-mix(in oklab, var(--bg-2) 60%, transparent);
+  border: 1px solid var(--line); color: var(--fg-2); padding: 10px 8px;
+  border-radius: var(--r-sm); font-family: var(--f-mono); font-size: 11px;
+  cursor: pointer; transition: border-color .15s, color .15s, background .15s;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.tgroup .tbtns button:hover { border-color: var(--line-strong); color: var(--fg); }
+.tgroup .tbtns button.active {
+  background: color-mix(in oklab, var(--accent) 14%, transparent);
+  border-color: var(--accent); color: var(--fg);
+}
+.swatch { display: flex; gap: 3px; height: 14px; width: 100%; border-radius: 3px; overflow: hidden; }
+.swatch i { flex: 1; }
+
+@media (max-width: 900px) {
+  .hero-b-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .sec-head { grid-template-columns: 1fr; }
+  .services .svc, .services .svc.third, .services .svc.wide { grid-column: span 12; }
+  .approach { grid-template-columns: 1fr 1fr; }
+  .approach .step:nth-child(2n) { border-right: none; }
+  .approach .step { border-bottom: 1px solid var(--line); }
+  .caps { grid-template-columns: 1fr; }
+  .contact-copy { padding: 36px; border-right: none; border-bottom: 1px solid var(--line); }
+  .contact-form { padding: 32px; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark" data-variant="bracket" id="logoMark"><span>X</span></span>
+      <span class="logo-name">Information<span class="x">/X</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services" class="active">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Start a project <span>&rarr;</span></a>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-a">
+      <div class="badge-row">
+        <span class="pill"><span class="dot-sm"></span>Now shipping &middot; AI &amp; Blockchain practice</span>
+        <span class="pill violet"><span class="dot-sm"></span>v26.04 &mdash; financial services</span>
+        <span class="pill pink"><span class="dot-sm"></span>UK &middot; Remote</span>
+      </div>
+      <h1>Engineering <span class="serif-touch">intelligent</span> systems for <span class="grad">regulated industries.</span></h1>
+      <p class="lead">Information X is a technology consultancy building production-grade AI, blockchain and software for financial services, ethnic retail and the charity sector. We pair deep engineering with domain fluency &mdash; from pilot to regulator-ready.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn primary">Start a project <span class="arrow">&rarr;</span></a>
+        <a href="#services" class="btn ghost">See capabilities <span class="arrow">&rarr;</span></a>
+      </div>
+      <div class="meta-row">
+        <div class="cell"><div class="k">Est.</div><div class="v">2019</div></div>
+        <div class="cell"><div class="k">Engineers</div><div class="v">24<span class="u">+</span></div></div>
+        <div class="cell"><div class="k">Client retention</div><div class="v">96<span class="u">%</span></div></div>
+        <div class="cell"><div class="k">Sectors</div><div class="v">Finance &middot; Retail &middot; Charity</div></div>
+      </div>
+    </div>
+
+    <div class="hero-b">
+      <div class="hero-b-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span>INFORMATION / X &nbsp;&mdash;&nbsp; Technology consultancy</div>
+          <h1>Software, <span class="grad">AI &amp; Blockchain</span> for regulated industries.</h1>
+          <p class="lead">We design, build and operate production systems for financial services, ethnic retail and charities. Small senior teams. Long engagements. Clear accountability.</p>
+          <div class="cta-row">
+            <a href="#contact" class="btn primary">Start a project <span class="arrow">&rarr;</span></a>
+            <a href="#services" class="btn ghost">Capabilities</a>
+          </div>
+        </div>
+        <div>
+          <div class="term">
+            <div class="term-head">
+              <div class="term-dots"><i></i><i></i><i></i></div>
+              <div class="term-title">ix@consult ~ engagement.ts</div>
+              <div class="mono" style="font-size:11px;color:var(--fg-3);">main</div>
+            </div>
+            <div class="term-body">
+              <div><span class="c-comment">// ix/engagement.ts</span></div>
+              <div><span class="c-key">import</span> { Team, Stack } <span class="c-key">from</span> <span class="c-str">"@informationx/core"</span></div>
+              <div style="height:6px"></div>
+              <div><span class="c-prompt">&gt;</span> ix plan <span class="c-str">"retail-loyalty-ai"</span></div>
+              <div>&nbsp;&nbsp;<span class="c-ok">&check;</span> Discovery &middot; 2 weeks &middot; 2 engineers</div>
+              <div>&nbsp;&nbsp;<span class="c-ok">&check;</span> Model eval (fraud / churn) &middot; pass</div>
+              <div>&nbsp;&nbsp;<span class="c-ok">&check;</span> On-chain loyalty ledger &middot; ERC-1155</div>
+              <div>&nbsp;&nbsp;<span class="c-warn">&bull;</span> Pilot live &middot; 4 stores &middot; 11,230 tx</div>
+              <div style="height:6px"></div>
+              <div><span class="c-prompt">&gt;</span> <span class="blink">&block;</span></div>
+            </div>
+            <div class="capability-grid">
+              <div class="c"><div class="n">MODELS</div><div class="v">LLM &middot; vision &middot; fraud</div></div>
+              <div class="c"><div class="n">CHAINS</div><div class="v">EVM &middot; Polygon &middot; Base</div></div>
+              <div class="c"><div class="n">STACK</div><div class="v">TS &middot; Go &middot; Python</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="belt" aria-hidden="true">
+  <div class="belt-inner" id="belt"></div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>01 / SERVICES</div>
+        <h2>What we <span class="grad">build &amp; operate.</span></h2>
+      </div>
+      <p class="desc">Five practice areas, one engineering standard. We staff senior teams against an outcome &mdash; not an hourly rate &mdash; and stay on to run what we ship.</p>
+    </div>
+
+    <div class="services">
+      <div class="svc wide">
+        <div class="svc-head">
+          <div class="svc-index mono">01 / AI &amp; MACHINE LEARNING</div>
+          <div class="svc-tag">New practice &middot; 2025</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start;">
+          <div>
+            <h3>Applied AI for financial services &mdash; from model to production.</h3>
+            <p>Fraud detection, KYC automation, document intelligence, customer-assistant agents. We specialise in the unglamorous part: evaluation harnesses, guardrails, observability, and the regulator-ready audit trail that makes AI deployable in finance.</p>
+            <ul>
+              <li>LLM systems &amp; RAG for regulated data</li>
+              <li>Fraud, AML &amp; transaction monitoring models</li>
+              <li>Document intelligence (statements, KYC, invoices)</li>
+              <li>Evaluation &middot; guardrails &middot; model risk governance</li>
+            </ul>
+          </div>
+          <div class="svc-viz">
+            <div class="viz-ai" id="vizAI"></div>
+            <div class="mono" style="margin-top:10px;font-size:11px;color:var(--fg-3);">live &middot; inference latency (p50)&nbsp;&nbsp;&middot;&nbsp;&nbsp;<span style="color:var(--accent)">&darr;</span> 142ms</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-head">
+          <div class="svc-index mono">02 / BLOCKCHAIN</div>
+          <div class="svc-tag">New practice &middot; 2025</div>
+        </div>
+        <h3>Tokens, settlement &amp; on-chain audit.</h3>
+        <p>Smart-contract engineering for payments, loyalty and auditable records. Security-first &mdash; formal review, fuzz testing, and monitoring built in.</p>
+        <ul>
+          <li>EVM contracts &middot; Solidity &amp; Foundry</li>
+          <li>L2 deployments &mdash; Base, Polygon, Arbitrum</li>
+          <li>Custody integrations &amp; signer policy</li>
+        </ul>
+        <div class="svc-viz">
+          <div class="viz-chain">
+            <div class="block"><div class="h">#4,812</div><div class="n">0x9a&hellip;b1</div><div class="v">transfer 250 USDC</div></div>
+            <div class="chain-link">&rarr;</div>
+            <div class="block"><div class="h">#4,813</div><div class="n">0x31&hellip;ce</div><div class="v">mint loyalty(142)</div></div>
+            <div class="chain-link">&rarr;</div>
+            <div class="block"><div class="h">#4,814</div><div class="n">0x7f&hellip;9d</div><div class="v">audit.commit</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-head">
+          <div class="svc-index mono">03 / ETHNIC RETAIL</div>
+          <div class="svc-tag">Core practice</div>
+        </div>
+        <h3>Commerce, inventory &amp; POS built for cultural specificity.</h3>
+        <p>A decade serving ethnic retail chains &mdash; multi-language POS, weight-based inventory, halal / kosher compliance workflows, community-specific loyalty.</p>
+        <ul>
+          <li>POS, stock &amp; e-commerce integration</li>
+          <li>Multi-currency, multi-language storefronts</li>
+          <li>Supplier &amp; compliance workflows</li>
+        </ul>
+        <div class="svc-viz">
+          <div class="viz-matrix" id="vizMatrix"></div>
+          <div class="mono" style="margin-top:10px;font-size:11px;color:var(--fg-3);">SKU inventory &middot; 1,248 lines &middot; <span style="color:var(--accent)">&darr;</span> 6 low-stock</div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-head">
+          <div class="svc-index mono">04 / CHARITY &amp; THIRD SECTOR</div>
+          <div class="svc-tag">Since 2019</div>
+        </div>
+        <h3>Impact platforms for the third sector.</h3>
+        <p>Fundraising platforms, beneficiary CRMs and transparent donation tracking &mdash; including on-chain proof-of-impact for donors who ask the hard questions.</p>
+        <ul>
+          <li>Donor &amp; beneficiary CRMs (Salesforce &middot; custom)</li>
+          <li>Gift Aid &amp; reconciliation automation</li>
+          <li>Impact dashboards &amp; verifiable reporting</li>
+        </ul>
+        <div class="svc-viz">
+          <div class="viz-impact">
+            <div class="bar"><span>Meals delivered</span><span class="fill"><i style="width:78%"></i></span><span class="v">12,481</span></div>
+            <div class="bar"><span>Donor retention</span><span class="fill"><i style="width:62%"></i></span><span class="v">62%</span></div>
+            <div class="bar"><span>Gift Aid claimed</span><span class="fill"><i style="width:91%"></i></span><span class="v">&pound;184k</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-head">
+          <div class="svc-index mono">05 / SOFTWARE CONSULTING</div>
+          <div class="svc-tag">Foundational</div>
+        </div>
+        <h3>Product, platform &amp; team &mdash; from brief to roadmap to release.</h3>
+        <p>When you need senior engineering to ship a platform, rescue a stalled project, or build the team that will keep going after we leave.</p>
+        <ul>
+          <li>Discovery, architecture &amp; technical due diligence</li>
+          <li>Platform &amp; cloud &mdash; AWS &middot; GCP &middot; Azure</li>
+          <li>Embedded engineering squads &amp; fractional CTO</li>
+        </ul>
+        <div class="svc-viz">
+          <div class="viz-kanban">
+            <div class="kol">
+              <div class="kh">BACKLOG</div>
+              <div class="kcard"><div class="t">Risk engine v2</div>IX-214</div>
+              <div class="kcard"><div class="t">Onboarding flow</div>IX-198</div>
+            </div>
+            <div class="kol">
+              <div class="kh">IN PROGRESS</div>
+              <div class="kcard" style="border-color:color-mix(in oklab, var(--accent) 50%, var(--line));"><div class="t">RAG doc-pipeline</div>IX-221 &middot; @maya</div>
+            </div>
+            <div class="kol">
+              <div class="kh">SHIPPED</div>
+              <div class="kcard" style="opacity:.75"><div class="t">Settlement API</div>IX-187 &check;</div>
+              <div class="kcard" style="opacity:.75"><div class="t">SSO &middot; OAuth2</div>IX-176 &check;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="approach">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>02 / APPROACH</div>
+        <h2>How we <span class="grad">engage.</span></h2>
+      </div>
+      <p class="desc">Four phases, no theatre. Every engagement starts with a paid two-week discovery and ends with a team that can operate what we built.</p>
+    </div>
+    <div class="approach">
+      <div class="step">
+        <div class="n"><span>PHASE</span><b>01</b></div>
+        <h4>Discover</h4>
+        <p>Two weeks. Interviews, system audit, risk map. A written plan you can take elsewhere if you'd rather.</p>
+        <div class="tick"><span>&check;</span> Deliverable &middot; decision memo</div>
+      </div>
+      <div class="step">
+        <div class="n"><span>PHASE</span><b>02</b></div>
+        <h4>Design</h4>
+        <p>Architecture, data model, trust boundaries. We decide what is bespoke, bought, or boring-on-purpose.</p>
+        <div class="tick"><span>&check;</span> Deliverable &middot; architecture &amp; ADR</div>
+      </div>
+      <div class="step">
+        <div class="n"><span>PHASE</span><b>03</b></div>
+        <h4>Build</h4>
+        <p>Two-week cadence. Working software over reports. We pair with your people so knowledge stays in-house.</p>
+        <div class="tick"><span>&check;</span> Deliverable &middot; production release</div>
+      </div>
+      <div class="step">
+        <div class="n"><span>PHASE</span><b>04</b></div>
+        <h4>Operate</h4>
+        <p>SLOs, on-call, incident reviews. We run it, hand it over, or both &mdash; whichever your team is ready for.</p>
+        <div class="tick"><span>&check;</span> Deliverable &middot; runbook &amp; handover</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>03 / ABOUT</div>
+        <h2>A small team with <span class="grad">deep sector memory.</span></h2>
+      </div>
+      <p class="desc">We have been shipping software for ethnic retail and the charity sector since 2019. In 2025 we opened two new practices &mdash; AI and blockchain &mdash; because our clients were asking for both, and we had senior engineers we trusted to do it right.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p><strong>Information X</strong> is a UK-based technology consultancy. We are deliberately small: senior engineers only, no offshoring, no middle layer of account managers between you and the people writing the code.</p>
+        <p>Our original practice grew out of work in ethnic retail &mdash; a sector under-served by generic retail software. That taught us to take domain knowledge seriously and to ship systems that respect the way a business actually runs.</p>
+        <p>Today we apply the same discipline to financial services, where AI and blockchain promise a lot and deliver sporadically. Our job is to make them deliver &mdash; safely, auditably, and on a timeline a CFO can plan around.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat"><div class="k">Founded</div><div class="v">2019</div><div class="d">Ilford, London, UK.</div></div>
+        <div class="stat"><div class="k">Engineers</div><div class="v">24<span class="u">+</span></div><div class="d">Senior median 9 yrs.</div></div>
+        <div class="stat"><div class="k">Engagements</div><div class="v">60<span class="u">+</span></div><div class="d">Across 4 sectors.</div></div>
+        <div class="stat"><div class="k">Retention</div><div class="v">96<span class="u">%</span></div><div class="d">Clients returning within 12 months.</div></div>
+      </div>
+    </div>
+    <div style="height: 72px"></div>
+    <div class="caps">
+      <div class="cap"><div class="t">AI &amp; Machine Learning</div><div>Applied research, production ML, evaluation.</div><div class="tags"><b>PyTorch</b><b>LangChain</b><b>OpenAI</b><b>Anthropic</b><b>Vertex</b><b>Triton</b></div></div>
+      <div class="cap"><div class="t">Blockchain</div><div>Contracts, L2, infra, custody integrations.</div><div class="tags"><b>Solidity</b><b>Foundry</b><b>Viem</b><b>Polygon</b><b>Base</b><b>Fireblocks</b></div></div>
+      <div class="cap"><div class="t">Platform &amp; Cloud</div><div>Secure, observable, cost-controlled.</div><div class="tags"><b>AWS</b><b>GCP</b><b>Terraform</b><b>K8s</b><b>Postgres</b><b>Kafka</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-grid">
+        <div class="contact-copy">
+          <div class="eyebrow"><span class="dot"></span>04 / CONTACT</div>
+          <h2>Let's build something <span class="grad">worth operating.</span></h2>
+          <p>Tell us about the problem in plain language. We'll reply within one working day with whether we're a fit &mdash; and, if we are, a proposed two-week discovery.</p>
+          <div class="contact-details">
+            <div><b>NEW BUSINESS</b><a href="mailto:hello@informationx.uk.com">hello@informationx.uk.com</a></div>
+            <div><b>PRESS</b><a href="mailto:press@informationx.uk.com">press@informationx.uk.com</a></div>
+            <div><b>CAREERS</b><a href="mailto:careers@informationx.uk.com">careers@informationx.uk.com</a></div>
+            <div><b>OFFICE</b><span>102 Cranbrook Road &middot; Ilford IG1 4NH, UK</span></div>
+            <div><b>HOURS</b><span>Mon &ndash; Fri &middot; 09:00 &ndash; 18:00 BST</span></div>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.submit').innerHTML='Sent &check;'; this.querySelector('.submit').disabled=true;">
+          <div class="field-row">
+            <div class="field"><label>Name</label><input type="text" placeholder="Ada Patel" required></div>
+            <div class="field"><label>Company</label><input type="text" placeholder="Northfield Bank"></div>
+          </div>
+          <div class="field"><label>Work email</label><input type="email" placeholder="ada@northfield.bank" required></div>
+          <div class="field">
+            <label>Practice</label>
+            <select>
+              <option>AI &amp; Machine Learning</option>
+              <option>Blockchain</option>
+              <option>Ethnic Retail</option>
+              <option>Charity &amp; Third Sector</option>
+              <option>Software Consulting</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field"><label>What are you trying to build?</label><textarea placeholder="One or two sentences is plenty."></textarea></div>
+          <button class="submit" type="submit">Send enquiry <span>&rarr;</span></button>
+          <div class="mono" style="font-size:11px;color:var(--fg-3);">We reply within one working day. No newsletters, no pipeline nurture.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo">
+          <span class="logo-mark" data-variant="bracket" id="logoMark2"><span>X</span></span>
+          <span class="logo-name">Information<span class="x">/X</span></span>
+        </a>
+        <p style="margin-top:14px">Technology consultancy for regulated industries. Financial services, ethnic retail and the third sector.</p>
+      </div>
+      <div>
+        <h5>Practice</h5>
+        <ul>
+          <li><a href="#services">AI &amp; Machine Learning</a></li>
+          <li><a href="#services">Blockchain</a></li>
+          <li><a href="#services">Ethnic Retail</a></li>
+          <li><a href="#services">Charity &amp; Third Sector</a></li>
+          <li><a href="#services">Software Consulting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#contact">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Modern slavery</a></li>
+          <li><a href="#">ICO ZA-000000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>&copy; 2026 Information X Ltd. Registered in England &amp; Wales &middot; 0000000</div>
+      <div>v26.04 &mdash; build.a4c1d9</div>
+    </div>
+  </div>
+</footer>
+
+<div id="tweaks" role="dialog" aria-label="Tweaks panel">
+  <div class="t-head">
+    <b>Tweaks <i>/X</i></b>
+    <span class="mono" style="font-size:11px;color:var(--fg-3);">Live &middot; auto-save</span>
+  </div>
+  <div class="t-body">
+    <div class="tgroup">
+      <div class="tlabel">Color theme</div>
+      <div class="tbtns four" data-group="theme">
+        <button data-v="violet-dark" class="active"><span class="swatch"><i style="background:#0A0815"></i><i style="background:#A855F7"></i><i style="background:#EC4899"></i></span>Violet</button>
+        <button data-v="electric"><span class="swatch"><i style="background:#0A0A0A"></i><i style="background:#FF4D1F"></i><i style="background:#FFB800"></i></span>Electric</button>
+        <button data-v="mint"><span class="swatch"><i style="background:#FAFAF8"></i><i style="background:#10B981"></i><i style="background:#0EA5E9"></i></span>Mint</button>
+        <button data-v="light"><span class="swatch"><i style="background:#F6F5F2"></i><i style="background:#0A0815"></i><i style="background:#A855F7"></i></span>Light</button>
+      </div>
+    </div>
+    <div class="tgroup">
+      <div class="tlabel">Typography pairing</div>
+      <div class="tbtns" data-group="typePair">
+        <button data-v="inter-jbmono" class="active">Inter + JetBrains</button>
+        <button data-v="grotesk-jbmono">Space Grotesk + JB</button>
+        <button data-v="ibm">IBM Plex (sans+mono)</button>
+        <button data-v="serif-mono">Instrument Serif H + Inter</button>
+      </div>
+    </div>
+    <div class="tgroup">
+      <div class="tlabel">Hero layout</div>
+      <div class="tbtns" data-group="heroVariant">
+        <button data-v="A" class="active">A &middot; Statement</button>
+        <button data-v="B">B &middot; Split + terminal</button>
+      </div>
+    </div>
+    <div class="tgroup">
+      <div class="tlabel">Logo mark</div>
+      <div class="tbtns" data-group="logoVariant">
+        <button data-v="chain">&#x2B21; Chain X</button>
+        <button data-v="bracket" class="active">[ X ] Bracket</button>
+        <button data-v="prism">&#x25C7; Prism X</button>
+        <button data-v="dot">&#x25CF; Dot</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function renderLogo(variant) {
+  const nodes = document.querySelectorAll('.logo-mark');
+  nodes.forEach(n => {
+    n.dataset.variant = variant;
+    n.innerHTML = '';
+    if (variant === 'bracket') {
+      n.innerHTML = '<span>X</span>';
+    } else if (variant === 'prism') {
+      n.innerHTML = '<svg viewBox="0 0 28 28" fill="none"><path d="M3 4 L14 14 L3 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 4 L14 14 L25 24" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    } else if (variant === 'chain') {
+      n.innerHTML = '<svg viewBox="0 0 32 32" fill="none"><g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M4 3 L8.5 5.5 L8.5 10.5 L4 13 L-0.5 10.5 L-0.5 5.5 Z" transform="translate(4 0)"/><path d="M4 3 L8.5 5.5 L8.5 10.5 L4 13 L-0.5 10.5 L-0.5 5.5 Z" transform="translate(20 0)" stroke="var(--accent)"/><path d="M4 3 L8.5 5.5 L8.5 10.5 L4 13 L-0.5 10.5 L-0.5 5.5 Z" transform="translate(4 16)" stroke="var(--accent)"/><path d="M4 3 L8.5 5.5 L8.5 10.5 L4 13 L-0.5 10.5 L-0.5 5.5 Z" transform="translate(20 16)"/></g><g stroke="var(--accent-2)" stroke-width="2.6" stroke-linecap="round"><line x1="10.5" y1="10.5" x2="21.5" y2="21.5"/><line x1="21.5" y1="10.5" x2="10.5" y2="21.5"/></g><circle cx="16" cy="16" r="2.4" fill="var(--accent-2)"/></svg>';
+    }
+  });
+}
+
+function buildWaveform() {
+  const v = document.getElementById('vizAI'); if (!v) return;
+  v.innerHTML = '';
+  for (let i = 0; i < 64; i++) {
+    const b = document.createElement('i');
+    const h = 12 + Math.round(Math.abs(Math.sin(i*0.35) + Math.cos(i*0.13)) * 30 + Math.random()*18);
+    b.style.height = h + 'px';
+    b.style.opacity = (0.55 + Math.random()*0.45).toFixed(2);
+    v.appendChild(b);
+  }
+}
+
+function buildMatrix() {
+  const m = document.getElementById('vizMatrix'); if (!m) return;
+  m.innerHTML = '';
+  for (let i = 0; i < 80; i++) {
+    const c = document.createElement('i');
+    const r = Math.random();
+    if (r < 0.45) c.classList.add('on');
+    else if (r < 0.52) c.classList.add('warn');
+    m.appendChild(c);
+  }
+}
+
+function buildBelt() {
+  const b = document.getElementById('belt');
+  const items = ['Financial services', 'AI \u00b7 Machine learning', 'Blockchain \u00b7 EVM',
+    'Ethnic retail', 'Charity \u00b7 3rd sector', 'Payments', 'Fraud & AML',
+    'Document AI', 'On-chain loyalty', 'Platform engineering', 'UK \u00b7 Ilford \u00b7 London \u00b7 informationx.uk.com'];
+  const build = () => items.map(t => '<span>'+t+'<span class="sep"></span></span>').join('');
+  b.innerHTML = build() + build();
+}
+
+const state = Object.assign({}, TWEAK_DEFAULTS);
+function applyState() {
+  document.documentElement.dataset.theme = state.theme;
+  document.documentElement.dataset.type = state.typePair;
+  document.documentElement.dataset.hero = state.heroVariant;
+  renderLogo(state.logoVariant);
+  document.querySelectorAll('#tweaks .tbtns').forEach(g => {
+    const key = g.dataset.group;
+    g.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.v === state[key]));
+  });
+}
+function setTweak(key, value) { state[key] = value; applyState(); }
+
+document.querySelectorAll('#tweaks .tbtns').forEach(g => {
+  g.addEventListener('click', (e) => {
+    const btn = e.target.closest('button'); if (!btn) return;
+    setTweak(g.dataset.group, btn.dataset.v);
+  });
+});
+
+applyState();
+buildWaveform();
+buildMatrix();
+buildBelt();
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const tgt = document.querySelector(a.getAttribute('href'));
+    if (!tgt) return;
+    e.preventDefault();
+    window.scrollTo({ top: tgt.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
+  });
+});
+
+const navA = [...document.querySelectorAll('.nav-links a')];
+const sections = navA.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+function onScroll() {
+  const y = window.scrollY + 120;
+  let idx = 0;
+  sections.forEach((s,i) => { if (s.offsetTop <= y) idx = i; });
+  navA.forEach((a,i) => a.classList.toggle('active', i === idx));
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+</script>
+
+</body>
+</html>
