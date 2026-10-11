@@ -8,15 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=IBM+Plex+Mono:wght@300;400;500;600&amp;family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap">
 
-<script>
-/* ---- Tweakable defaults, persisted on disk ---- */
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "theme": "violet-dark",
-  "typePair": "grotesk-jbmono",
-  "heroVariant": "A",
-  "logoVariant": "chain"
-}/*EDITMODE-END*/;
-</script>
+
 
 <style>
 /* ======================================================================
@@ -795,60 +787,6 @@ footer {
   font-family: var(--f-mono); font-size: 12px; color: var(--fg-3);
 }
 
-/* ======================================================================
-   TWEAKS PANEL
-   ====================================================================== */
-#tweaks {
-  position: fixed; bottom: 20px; right: 20px; z-index: 999;
-  width: 320px;
-  background: var(--bg-elev);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--r-lg);
-  box-shadow: 0 20px 60px -10px rgba(0,0,0,0.55), 0 0 0 1px var(--line);
-  color: var(--fg);
-  display: none;
-  font-family: var(--f-sans);
-  overflow: hidden;
-}
-#tweaks.open { display: block; }
-#tweaks .t-head {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in oklab, var(--bg-2) 55%, transparent);
-}
-#tweaks .t-head b { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-2); font-weight: 500; }
-#tweaks .t-head i { color: var(--accent); font-style: normal; }
-#tweaks .t-body { padding: 16px; display: grid; gap: 18px; max-height: 70vh; overflow: auto; }
-.tgroup .tlabel {
-  font-family: var(--f-mono); font-size: 10.5px; color: var(--fg-3);
-  letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px;
-}
-.tgroup .tbtns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
-.tgroup .tbtns.four { grid-template-columns: repeat(4, 1fr); }
-.tgroup .tbtns button {
-  background: color-mix(in oklab, var(--bg-2) 60%, transparent);
-  border: 1px solid var(--line);
-  color: var(--fg-2);
-  padding: 10px 8px;
-  border-radius: var(--r-sm);
-  font-family: var(--f-mono); font-size: 11px;
-  cursor: pointer;
-  transition: border-color .15s, color .15s, background .15s;
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-}
-.tgroup .tbtns button:hover { border-color: var(--line-strong); color: var(--fg); }
-.tgroup .tbtns button.active {
-  background: color-mix(in oklab, var(--accent) 14%, transparent);
-  border-color: var(--accent);
-  color: var(--fg);
-}
-.swatch { display: flex; gap: 3px; height: 14px; width: 100%; border-radius: 3px; overflow: hidden; }
-.swatch i { flex: 1; }
-
-/* ======================================================================
-   RESPONSIVE
-   ====================================================================== */
 @media (max-width: 900px) {
   .hero-b-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .sec-head { grid-template-columns: 1fr; }
@@ -1322,7 +1260,6 @@ footer {
         <ul>
           <li><a href="privacy.html">Privacy</a></li>
           <li><a href="cookies.html">Cookies</a></li>
-          <li><a href="#">Modern slavery</a></li>
           <li><a href="#">ICO ZC155791</a></li>
         </ul>
       </div>
@@ -1333,56 +1270,6 @@ footer {
     </div>
   </div>
 </footer>
-
-
-<!-- =========================== TWEAKS =========================== -->
-<div id="tweaks" role="dialog" aria-label="Tweaks panel" class="open">
-  <div class="t-head">
-    <b>Tweaks <i>/X</i></b>
-    <span class="mono" style="font-size:11px;color:var(--fg-3);">Live · auto-save</span>
-  </div>
-  <div class="t-body">
-
-    <div class="tgroup">
-      <div class="tlabel">Color theme</div>
-      <div class="tbtns four" data-group="theme">
-        <button data-v="violet-dark" title="Violet (dark)" class="active"><span class="swatch"><i style="background:#0A0815"></i><i style="background:#A855F7"></i><i style="background:#EC4899"></i></span>Violet</button>
-        <button data-v="electric" title="Electric" class=""><span class="swatch"><i style="background:#0A0A0A"></i><i style="background:#FF4D1F"></i><i style="background:#FFB800"></i></span>Electric</button>
-        <button data-v="mint" title="Mint" class=""><span class="swatch"><i style="background:#FAFAF8"></i><i style="background:#10B981"></i><i style="background:#0EA5E9"></i></span>Mint</button>
-        <button data-v="light" title="Light" class=""><span class="swatch"><i style="background:#F6F5F2"></i><i style="background:#0A0815"></i><i style="background:#A855F7"></i></span>Light</button>
-      </div>
-    </div>
-
-    <div class="tgroup">
-      <div class="tlabel">Typography pairing</div>
-      <div class="tbtns" data-group="typePair">
-        <button data-v="inter-jbmono" class="active">Inter + JetBrains</button>
-        <button data-v="grotesk-jbmono">Space Grotesk + JB</button>
-        <button data-v="ibm" class="">IBM Plex (sans+mono)</button>
-        <button data-v="serif-mono" class="">Instrument Serif H + Inter</button>
-      </div>
-    </div>
-
-    <div class="tgroup">
-      <div class="tlabel">Hero layout</div>
-      <div class="tbtns" data-group="heroVariant">
-        <button data-v="A" class="active">A · Statement</button>
-        <button data-v="B" class="">B · Split + terminal</button>
-      </div>
-    </div>
-
-    <div class="tgroup">
-      <div class="tlabel">Logo mark</div>
-      <div class="tbtns" data-group="logoVariant">
-        <button data-v="chain">⬡ Chain X</button>
-        <button data-v="bracket" class="active">[ X ] Bracket</button>
-        <button data-v="prism" class="">◆ Prism X</button>
-        <button data-v="dot" class="">● Dot</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 
 <!-- =========================== SCRIPTS =========================== -->
@@ -1470,43 +1357,13 @@ function buildBelt() {
   b.innerHTML = build() + build();
 }
 
-/* ---------- Tweaks plumbing ---------- */
-const state = Object.assign({}, TWEAK_DEFAULTS);
+const state = {theme:'violet-dark', typePair:'inter-jbmono', heroVariant:'A', logoVariant:'chain'};
 function applyState() {
   document.documentElement.dataset.theme = state.theme;
   document.documentElement.dataset.type = state.typePair;
   document.documentElement.dataset.hero = state.heroVariant;
   renderLogo(state.logoVariant);
-  document.querySelectorAll('#tweaks .tbtns').forEach(g => {
-    const key = g.dataset.group;
-    g.querySelectorAll('button').forEach(b =>
-      b.classList.toggle('active', b.dataset.v === state[key])
-    );
-  });
 }
-function setTweak(key, value) {
-  state[key] = value;
-  applyState();
-  window.parent.postMessage({type:'__edit_mode_set_keys', edits: {[key]: value}}, '*');
-}
-
-document.querySelectorAll('#tweaks .tbtns').forEach(g => {
-  g.addEventListener('click', (e) => {
-    const btn = e.target.closest('button'); if (!btn) return;
-    setTweak(g.dataset.group, btn.dataset.v);
-  });
-});
-
-/* ---------- Host postMessage protocol ---------- */
-window.addEventListener('message', (e) => {
-  const d = e.data || {};
-  if (d.type === '__activate_edit_mode') {
-    document.getElementById('tweaks').classList.add('open');
-  } else if (d.type === '__deactivate_edit_mode') {
-    document.getElementById('tweaks').classList.remove('open');
-  }
-});
-window.parent.postMessage({type:'__edit_mode_available'}, '*');
 
 /* ---------- init ---------- */
 applyState();
